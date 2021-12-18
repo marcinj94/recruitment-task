@@ -23,6 +23,9 @@ const theme: DefaultTheme = {
       xlarge: '962px',
     },
   },
+  colors: {
+    celadon: 'rgb(101,193,212)',
+  },
 };
 
 export { theme };

@@ -16,11 +16,8 @@ export const Button = styled.button<ButtonProps>`
 
   & > * {
     transition: transform 0.3s;
-  }
-
-  @media (min-width: ${(props) => props.theme.screenWidthSize.desktop.XGA}) {
-    &:hover {
-      & > * {
+    @media (min-width: ${(props) => props.theme.screenWidthSize.desktop.XGA}) {
+      &:hover {
         transform: translateX(-3px);
       }
     }

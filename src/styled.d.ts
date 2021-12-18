@@ -24,5 +24,8 @@ declare module 'styled-components' {
         xlarge: '962px';
       };
     };
+    colors: {
+      celadon: 'rgb(101,193,212)';
+    };
   }
 }

@@ -4,6 +4,7 @@ interface RoundedButtonProps {
   positionAbsolute?: boolean;
   verticalCenter?: boolean;
   rightPosition?: number;
+  flexOrder?: number;
 }
 export const RoundedButton = styled.button<RoundedButtonProps>`
   background-color: ${({ theme }) => theme.colors.celadon};
@@ -14,8 +15,13 @@ export const RoundedButton = styled.button<RoundedButtonProps>`
   border-radius: 30px;
   cursor: pointer;
   transition: 0.3s;
-
   font-size: 0.7em;
+
+  ${({ flexOrder }) =>
+    flexOrder &&
+    css`
+      order: ${flexOrder};
+    `}
 
   @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.small}) {
     font-size: 1em;

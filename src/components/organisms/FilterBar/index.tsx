@@ -80,15 +80,22 @@ export const FilterBar: React.FC = () => {
   return (
     <WhiteSection>
       <BarWrapper>
-        <CustomSelect value={select} options={options} onChange={onChangeSelect} />
-        <RoundedButton onClick={handleSearch} positionAbsolute verticalCenter rightPosition={30}>
-          Wyszukaj
-        </RoundedButton>
+        <CustomSelect value={select} options={options} onChange={onChangeSelect} flexOrder={1} />
         <TextInput
           value={input}
           onChange={onChangeInput}
           placeholder="Podaj nazwę, numer lub datę raportu"
+          flexOrder={3}
         />
+        <RoundedButton
+          onClick={handleSearch}
+          positionAbsolute
+          verticalCenter
+          rightPosition={30}
+          flexOrder={2}
+        >
+          Wyszukaj
+        </RoundedButton>
       </BarWrapper>
       <Tags availableTags={availableTags} />
     </WhiteSection>

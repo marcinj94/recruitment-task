@@ -3,7 +3,7 @@ import { ReportLink, ReportLinkLabel, ReportLinkSize } from 'components/atoms';
 import * as React from 'react';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 import { FileElement } from 'state/types/reports';
-import { formatBytesToSize } from 'utils';
+import { formatFilesize } from 'utils';
 import {
   ToggleButton,
   ButtonLabel,
@@ -33,7 +33,7 @@ export const AccordionMenu: React.FC<AccordionMenuProps> = ({ onClick, active, f
       {active && (
         <List>
           {files.map(({ filename, filesize }) => {
-            const size = formatBytesToSize(filesize, 0);
+            const size = formatFilesize(filesize);
             const label = `${filename}.pdf`;
             return (
               <ListItem key={`${filename}_${filesize}`}>

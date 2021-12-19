@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         margin: 0;
-        padding: 0;
+        padding: 0 0 30px 0;
         font-family: ${(props) => props.theme.fontFamily};
         background-color: rgb(242,242,242);
     }

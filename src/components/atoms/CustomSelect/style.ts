@@ -1,10 +1,19 @@
 import { formStyles } from 'components/atoms/TextInput/style';
 import { VscChevronDown } from 'react-icons/vsc';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Label = styled.label`
+interface LabelProps {
+  flexOrder?: number;
+}
+export const Label = styled.label<LabelProps>`
   display: inline-block;
   position: relative;
+
+  ${({ flexOrder }) =>
+    flexOrder &&
+    css`
+      order: ${flexOrder};
+    `}
 `;
 
 export const Select = styled.select`

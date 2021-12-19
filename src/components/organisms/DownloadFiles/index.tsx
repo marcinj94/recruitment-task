@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FileElement } from 'state/types/reports';
 import { ReportLink, ReportLinkLabel, ReportLinkSize } from 'components/atoms';
-import { formatBytesToSize } from 'utils';
+import { formatFilesize } from 'utils';
 import { AccordionMenu } from 'components/organisms';
 
 interface DownloadFilesProps {
@@ -18,7 +18,7 @@ export const DownloadFiles: React.FC<DownloadFilesProps> = ({ files }) => {
       {files.length === 1 && (
         <ReportLink href="#">
           <ReportLinkLabel>{`${files[0].filename}.pdf`}</ReportLinkLabel>
-          <ReportLinkSize>({formatBytesToSize(files[0].filesize, 0)})</ReportLinkSize>
+          <ReportLinkSize>({formatFilesize(files[0].filesize)})</ReportLinkSize>
         </ReportLink>
       )}
       {files.length > 1 && <AccordionMenu onClick={handleToggle} active={isOpen} files={files} />}

@@ -5,8 +5,20 @@ interface TextInputProps {
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
+  flexOrder?: number;
 }
 
-export const TextInput: React.FC<TextInputProps> = ({ value, onChange, placeholder }) => (
-  <Input type="text" value={value} onChange={onChange} placeholder={placeholder} />
+export const TextInput: React.FC<TextInputProps> = ({
+  value,
+  onChange,
+  placeholder,
+  flexOrder,
+}) => (
+  <Input
+    type="text"
+    value={value}
+    onChange={onChange}
+    placeholder={placeholder}
+    flexOrder={flexOrder}
+  />
 );

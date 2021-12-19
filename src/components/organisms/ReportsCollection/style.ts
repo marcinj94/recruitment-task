@@ -5,14 +5,14 @@ export const List = styled.ul`
   flex-direction: column;
   gap: 20px;
   margin-top: 0;
+  padding: 0;
 `;
 
 export const ListItem = styled.li`
   list-style-type: none;
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
   position: relative;
+  padding-bottom: 20px;
+
   &::after {
     content: '';
     position: absolute;
@@ -22,14 +22,33 @@ export const ListItem = styled.li`
     height: 1px;
     background-color: #dfdfdf;
   }
+
+  &:last-child {
+    padding-bottom: 0;
+    &::after {
+      display: none;
+    }
+  }
+
+  @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.small}) {
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const LeftWrapper = styled.div`
-  padding-top: 8px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 10px;
-  width: 18%;
+  flex-direction: row;
+
+  @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.small}) {
+    padding-top: 8px;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 18%;
+  }
 `;
 
 export const RightWrapper = styled.div`
@@ -38,6 +57,10 @@ export const RightWrapper = styled.div`
 
 export const ActionWrapper = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 10px;
   margin-top: 10px;
+
+  @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.small}) {
+    gap: 20px;
+  }
 `;

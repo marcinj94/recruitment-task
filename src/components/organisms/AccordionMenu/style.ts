@@ -53,7 +53,7 @@ export const getStyledIcon = (icon: IconType) => styled(icon)`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: -25px;
+  right: -22px;
 `;
 
 export const List = styled.ul`

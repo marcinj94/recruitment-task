@@ -6,3 +6,8 @@ export * from './CustomSelect';
 export * from './TagButton';
 export * from './ErrorMsg';
 export * from './WhiteSection';
+export * from './ReportDatetime';
+export * from './ReportCategory';
+export * from './ReportTitle';
+export * from './ReportDescription';
+export * from './ReportLink';

@@ -5,7 +5,7 @@ export interface FileElement {
 
 export interface DataElement {
   category: string;
-  date: Date;
+  date: number;
   description: string;
   files: FileElement[];
   title: string;

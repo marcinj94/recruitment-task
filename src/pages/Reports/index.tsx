@@ -1,12 +1,16 @@
 import * as React from 'react';
-import { FilterBar, Header } from 'components/organisms';
+import { FilterBar, Header, ReportsCollection } from 'components/organisms';
 import styled from 'styled-components';
 import { ErrorMsg } from 'components/atoms';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReports } from 'state/reducers/reports';
 import { RootState } from 'state/rootReducer';
 
-const Main = styled.main``;
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`;
 
 export const Reports: React.FC = () => {
   const dispatch = useDispatch();
@@ -24,6 +28,7 @@ export const Reports: React.FC = () => {
       ) : (
         <Main>
           <FilterBar />
+          <ReportsCollection />
         </Main>
       )}
     </>

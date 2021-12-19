@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { Tags } from 'components/molecules/Tags';
 import { setFilterParams, setFilterSelect } from 'state/reducers/reports';
 
-const FormWrapper = styled.div`
+const BarWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -79,7 +79,7 @@ export const FilterBar: React.FC = () => {
 
   return (
     <WhiteSection>
-      <FormWrapper>
+      <BarWrapper>
         <CustomSelect value={select} options={options} onChange={onChangeSelect} />
         <RoundedButton onClick={handleSearch} positionAbsolute verticalCenter rightPosition={30}>
           Wyszukaj
@@ -89,7 +89,7 @@ export const FilterBar: React.FC = () => {
           onChange={onChangeInput}
           placeholder="Podaj nazwę, numer lub datę raportu"
         />
-      </FormWrapper>
+      </BarWrapper>
       <Tags availableTags={availableTags} />
     </WhiteSection>
   );

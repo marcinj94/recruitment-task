@@ -3,7 +3,7 @@ import { ReportLink, ReportLinkLabel, ReportLinkSize } from 'components/atoms';
 import * as React from 'react';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 import { FileElement } from 'state/types/reports';
-import { formatBytesToSize } from 'utils/formatBytesToSize';
+import { formatBytesToSize } from 'utils';
 import {
   ToggleButton,
   ButtonLabel,

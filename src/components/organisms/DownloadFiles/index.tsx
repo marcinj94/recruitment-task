@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FileElement } from 'state/types/reports';
 import { ReportLink, ReportLinkLabel, ReportLinkSize } from 'components/atoms';
-import { formatBytesToSize } from 'utils/formatBytesToSize';
+import { formatBytesToSize } from 'utils';
 import { AccordionMenu } from 'components/organisms';
 
 interface DownloadFilesProps {

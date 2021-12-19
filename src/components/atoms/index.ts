@@ -11,3 +11,4 @@ export * from './ReportCategory';
 export * from './ReportTitle';
 export * from './ReportDescription';
 export * from './ReportLink';
+export * from './NoDataMsg';

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DEFAULT_TAGS } from 'state/types/reports';
 import { Label, Select, Option, StyledIcon } from './style';
 
 interface CustomSelectProps {
@@ -20,6 +21,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
           {id}
         </Option>
       ))}
+      <Option value={DEFAULT_TAGS.ALL}>Wszystkie</Option>
     </Select>
     <StyledIcon />
   </Label>

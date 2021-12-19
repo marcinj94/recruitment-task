@@ -7,7 +7,6 @@ interface TextInputProps {
   placeholder?: string;
   flexOrder?: number;
 }
-
 export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,

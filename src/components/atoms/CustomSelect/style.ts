@@ -1,4 +1,4 @@
-import { formStyles } from 'components/atoms/TextInput/style';
+import { formStyles } from 'components/atoms/style';
 import { VscChevronDown } from 'react-icons/vsc';
 import styled, { css } from 'styled-components';
 

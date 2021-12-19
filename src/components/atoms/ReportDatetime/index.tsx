@@ -5,7 +5,6 @@ import { Wrapper, StyledDate, StyledTime } from './style';
 interface ReportDatetimeProps {
   timestamp: number;
 }
-
 export const ReportDatetime: React.FC<ReportDatetimeProps> = ({ timestamp }) => {
   const { day, month, year, hours, minutes } = getDatetimeParams(timestamp);
   return (

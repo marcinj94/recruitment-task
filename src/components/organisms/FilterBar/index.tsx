@@ -2,27 +2,9 @@ import { CustomSelect, RoundedButton, TextInput, WhiteSection } from 'components
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'state/rootReducer';
-import styled from 'styled-components';
 import { Tags } from 'components/molecules/Tags';
 import { setFilterParams, setFilterSelect } from 'state/reducers/reports';
-
-const BarWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px 0;
-  position: relative;
-
-  @media (min-width: ${(props) => props.theme.screenWidthSize.mobile.large}) {
-    justify-content: space-around;
-  }
-
-  @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.large}) {
-    gap: 30px;
-    flex-wrap: nowrap;
-  }
-`;
+import { BarWrapper } from './style';
 
 export const FilterBar: React.FC = () => {
   const dispatch = useDispatch();
@@ -40,7 +22,6 @@ export const FilterBar: React.FC = () => {
     }, []);
     const uniqueSet = new Set(years.sort((a, b) => b - a).map((value) => value.toString()));
     const values = Array.from(uniqueSet);
-
     return values;
   }, [data]);
 

@@ -7,6 +7,7 @@ export interface ReportsState {
   filter: FilterParams;
   data: DataElement[];
   error: boolean;
+  isFetched: boolean;
   activeTags: string[];
 }
 
@@ -17,6 +18,7 @@ const initialState: ReportsState = {
   },
   data: [],
   error: false,
+  isFetched: false,
   activeTags: [DEFAULT_TAGS.ALL],
 };
 
@@ -43,9 +45,11 @@ export const reportsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchReports.fulfilled, (state, { payload }) => {
       state.data = payload;
+      state.isFetched = true;
     });
     builder.addCase(fetchReports.rejected, (state) => {
       state.error = true;
+      state.isFetched = false;
     });
   },
 });

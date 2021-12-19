@@ -1,14 +1,14 @@
 /* eslint-disable object-curly-newline */
 import { ReportLink, ReportLinkLabel, ReportLinkSize } from 'components/atoms';
 import * as React from 'react';
-import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 import { FileElement } from 'state/types/reports';
 import { formatFilesize } from 'utils';
 import {
   ToggleButton,
   ButtonLabel,
   ButtonDescription,
-  getStyledIcon,
+  StyledIconUp,
+  StyledIconDown,
   List,
   ListItem,
   Wrapper,
@@ -19,33 +19,25 @@ interface AccordionMenuProps {
   active: boolean;
   files: FileElement[];
 }
-export const AccordionMenu: React.FC<AccordionMenuProps> = ({ onClick, active, files }) => {
-  const icon = active ? VscChevronUp : VscChevronDown;
-  const StyledIcon = getStyledIcon(icon);
-  return (
-    <Wrapper>
-      <ToggleButton onClick={onClick} active={active}>
-        <ButtonLabel>
-          <ButtonDescription>Pliki do pobrania ({files.length})</ButtonDescription>
-          <StyledIcon />
-        </ButtonLabel>
-      </ToggleButton>
-      {active && (
-        <List>
-          {files.map(({ filename, filesize }) => {
-            const size = formatFilesize(filesize);
-            const label = `${filename}.pdf`;
-            return (
-              <ListItem key={`${filename}_${filesize}`}>
-                <ReportLink href="#">
-                  <ReportLinkLabel>{label}</ReportLinkLabel>
-                  <ReportLinkSize>({size})</ReportLinkSize>
-                </ReportLink>
-              </ListItem>
-            );
-          })}
-        </List>
-      )}
-    </Wrapper>
-  );
-};
+export const AccordionMenu: React.FC<AccordionMenuProps> = ({ onClick, active, files }) => (
+  <Wrapper>
+    <ToggleButton onClick={onClick} active={active}>
+      <ButtonLabel>
+        <ButtonDescription>Pliki do pobrania ({files.length})</ButtonDescription>
+        {active ? <StyledIconUp /> : <StyledIconDown />}
+      </ButtonLabel>
+    </ToggleButton>
+    {active && (
+      <List>
+        {files.map(({ filename, filesize }) => (
+          <ListItem key={`${filename}_${filesize}`}>
+            <ReportLink href="#">
+              <ReportLinkLabel>{formatFilesize(filesize)}</ReportLinkLabel>
+              <ReportLinkSize>({`${filename}.pdf`})</ReportLinkSize>
+            </ReportLink>
+          </ListItem>
+        ))}
+      </List>
+    )}
+  </Wrapper>
+);

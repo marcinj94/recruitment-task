@@ -6,15 +6,22 @@ export const formStyles = css`
   border: none;
   border-bottom: 2px solid black;
   letter-spacing: 1.2px;
+  font-size: 0.7em;
+
+  @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.small}) {
+    font-size: 1em;
+  }
 `;
 
 export const Input = styled.input`
   ${formStyles}
   width: 100%;
-  padding: 15px 15px 15px 20px;
-  margin-top: 20px;
-
+  padding: 10px;
   &::placeholder {
     color: #acacac;
+  }
+
+  @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.small}) {
+    padding: 20px;
   }
 `;

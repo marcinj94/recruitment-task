@@ -5,17 +5,20 @@ import styled from 'styled-components';
 export const Label = styled.label`
   display: inline-block;
   position: relative;
-  margin-top: 20px;
 `;
 
 export const Select = styled.select`
   ${formStyles}
-  padding: 15px 55px 15px 20px;
+  padding: 10px 55px 10px 10px;
   cursor: pointer;
   position: relative;
   /* hide arrow */
   appearance: none;
   font-weight: bold;
+
+  @media (min-width: ${(props) => props.theme.screenWidthSize.tablet.small}) {
+    padding: 20px 55px 20px 20px;
+  }
 `;
 
 export const StyledIcon = styled(VscChevronDown)`

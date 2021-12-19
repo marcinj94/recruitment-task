@@ -1,45 +1,31 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
-import { Header } from 'components/organisms';
+import { FilterBar, Header } from 'components/organisms';
 import styled from 'styled-components';
-import { RoundedButton, CustomSelect, TextInput, TagButton } from 'components/atoms';
+import { ErrorMsg } from 'components/atoms';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchReports } from 'state/reducers/reports';
+import { RootState } from 'state/rootReducer';
 
-const Section = styled.section`
-  background-color: white;
-  margin: 0 10%;
-
-  padding: 20px;
-`;
+const Main = styled.main``;
 
 export const Reports: React.FC = () => {
-  // test input
-  const [input, setInput] = React.useState('');
-  const onChangeTextInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
+  const dispatch = useDispatch();
+  const { error } = useSelector((state: RootState) => state.reports);
 
-  // test select
-  const options = ['2019', '2020', '2021'];
-  const [select, setSelect] = React.useState(options[0]);
-  const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelect(e.target.value);
-  };
+  React.useEffect(() => {
+    dispatch(fetchReports());
+  }, []);
 
   return (
     <>
       <Header />
-      <Section>
-        <RoundedButton label="Wyszukaj" />
-        <TextInput
-          value={input}
-          onChange={onChangeTextInput}
-          placeholder="Podaj nazwę, numer lub datę raportu"
-        />
-        <CustomSelect value={select} options={options} onChange={onChangeSelect} />
-        <TagButton active>Wszystkie</TagButton>
-        <TagButton active={false}>Bieżące ESPI</TagButton>
-        <TagButton active={false}>Bieżące EBI</TagButton>
-      </Section>
+      {error ? (
+        <ErrorMsg description="Brak danych do wyświetlenia..." />
+      ) : (
+        <Main>
+          <FilterBar />
+        </Main>
+      )}
     </>
   );
 };

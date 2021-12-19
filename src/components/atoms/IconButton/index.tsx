@@ -10,6 +10,7 @@ interface IconButtonProps {
   icon?: IconType;
   positionAbsolute?: PositionAbsolute;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  ariaLabel: string;
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({
@@ -17,8 +18,9 @@ export const IconButton: React.FC<IconButtonProps> = ({
   icon = <VscArrowLeft />,
   positionAbsolute,
   onClick,
+  ariaLabel,
 }) => (
-  <Button type={type} positionAbsolute={positionAbsolute} onClick={onClick}>
+  <Button type={type} aria-label={ariaLabel} positionAbsolute={positionAbsolute} onClick={onClick}>
     {icon}
   </Button>
 );

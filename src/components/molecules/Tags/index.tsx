@@ -49,9 +49,11 @@ export const Tags: React.FC<TagsProps> = ({ availableTags }) => {
         </TagButton>
       </ListItem>
       {availableTags.map((id) => (
-        <TagButton key={id} active={activeTags.includes(id)} onClick={() => onClick(id)}>
-          {id}
-        </TagButton>
+        <ListItem key={id}>
+          <TagButton active={activeTags.includes(id)} onClick={() => onClick(id)}>
+            {id}
+          </TagButton>
+        </ListItem>
       ))}
     </List>
   );

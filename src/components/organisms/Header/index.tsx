@@ -9,6 +9,6 @@ const StyledHeader = styled.header`
 export const Header: React.FC = () => (
   <StyledHeader>
     <MainHeader>Raporty</MainHeader>
-    <IconButton positionAbsolute />
+    <IconButton positionAbsolute ariaLabel="Page back" />
   </StyledHeader>
 );

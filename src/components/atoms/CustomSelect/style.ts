@@ -18,6 +18,7 @@ export const Label = styled.label<LabelProps>`
 
 export const Select = styled.select`
   ${formStyles}
+  background-color: #fff;
   padding: 10px 55px 10px 10px;
   cursor: pointer;
   position: relative;
